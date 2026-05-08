@@ -11,7 +11,7 @@ source:
   sha256: e076c851eec0972486ec842164fdc54547f9d17abd3d1449de8b120f5d299143
 
 build:
-  number: 0
+  number: 1
   skip:
     - not linux
   script: |
@@ -21,7 +21,6 @@ build:
 
     make
     make install
-
 
 requirements:
   build:
