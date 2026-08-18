@@ -1,0 +1,18 @@
+From: conda-forge
+Subject: Fix bundled headers with old system kernel headers
+
+strace 7.0 updated its bundled taskstats.h to require linux/time_types.h,
+but did not bundle that header.  Use strace's existing fallback definitions.
+See https://github.com/strace/strace/issues/405.
+
+--- a/bundled/linux/include/uapi/linux/taskstats.h
++++ b/bundled/linux/include/uapi/linux/taskstats.h
+@@ -18,7 +18,7 @@
+ #define _LINUX_TASKSTATS_H
+ 
+ #include <linux/types.h>
+-#include <linux/time_types.h>
++#include "kernel_time_types.h"
+ 
+ /* Format for per-task data returned to userland when
+  *	- a task exits

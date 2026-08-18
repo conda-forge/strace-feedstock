@@ -9,6 +9,8 @@ package:
 source:
   url: https://github.com/strace/strace/releases/download/v${{ version }}/${{ name }}-${{ version }}.tar.xz
   sha256: 4bde6246926890dcee824f6e6ac42a06752f47d77e5097d86e3c0d6d4b709fe5
+  patches:
+    - fix-bundled-kernel-time-types.patch
 
 build:
   number: 0
