@@ -1,6 +1,6 @@
 context:
   name: strace
-  version: "6.19"
+  version: "7.2"
 
 package:
   name: ${{ name }}
@@ -8,10 +8,12 @@ package:
 
 source:
   url: https://github.com/strace/strace/releases/download/v${{ version }}/${{ name }}-${{ version }}.tar.xz
-  sha256: e076c851eec0972486ec842164fdc54547f9d17abd3d1449de8b120f5d299143
+  sha256: 4bde6246926890dcee824f6e6ac42a06752f47d77e5097d86e3c0d6d4b709fe5
+  patches:
+    - fix-bundled-kernel-time-types.patch
 
 build:
-  number: 1
+  number: 0
   skip:
     - not linux
   script: |
